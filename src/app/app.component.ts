@@ -1,10 +1,18 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './_components/header/header.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [CommonModule, HeaderComponent, RouterOutlet],
+  template: `
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  `,
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'home-rentals';
+  title: string = 'home-rentals';
 }
